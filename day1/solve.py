@@ -1,8 +1,9 @@
 def load():
+    # Load data
     with open("input.txt", "r") as f:
         data = f.readlines()
 
-    # Split each line and convert each element to integer
+    # Process data
     list_1, list_2 = zip(*(line.split() for line in data))
     list_1 = [int(n) for n in list_1]
     list_2 = [int(n) for n in list_2]
@@ -10,7 +11,6 @@ def load():
 
 
 def part_1(list_1, list_2):
-    # Sort each list
     list_1_sorted = sorted(list_1)
     list_2_sorted = sorted(list_2)
 
@@ -26,8 +26,7 @@ def part_2(list_1, list_2):
 
     # Loop over each number in the first list and calculate the similarity
     # score. Note a Counter object returns 0 if the key doesn't exist.
-    similarity_score = sum([n * list_2_counts[n] for n in list_1])
-    return similarity_score
+    return sum([n * list_2_counts[n] for n in list_1])
 
 
 if __name__ == "__main__":
